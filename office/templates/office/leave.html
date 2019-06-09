@@ -3,11 +3,13 @@
 {%block title%}
 {%endblock%}
 {% block content %}
-<h2>Leave Request Form</h2>
-<form method="POST" class="form-group container pt-4">
+<div class="home">
+<h2 class="text-center">Leave Request Form</h2>
+<form method="POST" class="form-group container pt-2">
 	{% csrf_token %}
     {{form|crispy}}
     <button type="submit" class="btn btn-success">Request</button>
 </form>
+</div>
 {% endblock content%}
 

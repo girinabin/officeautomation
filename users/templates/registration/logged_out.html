@@ -1,7 +1,10 @@
 {%extends "office/base.html" %}
+{%block title%}
+    Logout
+{%endblock%}
 {% block content %}
+<div class="home text-center">
 <h2>You have been logout</h2>
-<div>
     <p> <a href="{%url 'login'%}">Login Again</a></p>
 </div>
 {% endblock content%}
