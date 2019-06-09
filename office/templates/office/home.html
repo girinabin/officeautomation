@@ -1,0 +1,21 @@
+{% extends 'office/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'office/main.css'%}">
+<div id="home">
+    <div class="conatiner">
+        <p class="title">Welcome to Mpercent</p>
+        <p class="sub-title">Managing Your Works Easily</p>
+    </div>
+</div>
+<section id="offer">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="#"><button>Opearation</button></a>
+        </div>
+    </div>
+    <div class="col-md-2">
+            <a href="#"><button class="btn btn-promary">Leave</button></a>
+        </div>
+</section>
+{% endblock %}

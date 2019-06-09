@@ -1,0 +1,13 @@
+{%extends "office/base.html" %}
+{%load crispy_forms_tags%}
+{%block title%}
+{%endblock%}
+{% block content %}
+<h1>Snacks Ordering Form</h1>
+<form method="POST" class="form-group container pt-4">
+	{% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-success">Order</button>
+</form>
+{% endblock content%}
+
