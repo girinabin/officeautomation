@@ -1,9 +1,15 @@
 {%extends "office/base.html" %}
 {%load crispy_forms_tags%}
+{%block title%}
+    Sign Up here!
+{%endblock%}
 {% block content %}
+<div class="home container">
 <form method="POST" class="form-group">
 	{% csrf_token %}
     {{form|crispy}}
     <button type="submit" class="btn btn-success">Register</button>
+    <p>Alerady Have an Account? <a href="{% url 'login' %}">Login Here</a></p>
 </form>
+</div>
 {% endblock content%}

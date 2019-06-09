@@ -1,21 +1,21 @@
 {% extends 'office/base.html' %}
+{% block title %}
+Best Intersection Between Company and Worker's
+{% endblock %}
 {% load static %}
 {% block content %}
+<link href="https://fonts.googleapis.com/css?family=Kanit:400,500i,600,600i,700,700i,800,800i,900,900i|Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'office/main.css'%}">
-<div id="home">
-    <div class="conatiner">
-        <p class="title">Welcome to Mpercent</p>
-        <p class="sub-title">Managing Your Works Easily</p>
+    <div class="container home text-center">
+        <h1 class="header">Welcome to Mpercept</h1>
+        <p class="sub-header">Best Intersection Between Company and Worker's</p>
+        {% if is_authenticated %}
+        <p>You are not logged in: <a href="{% url 'login' %}">Login Here</a></p>
+        {% else %}
+        <a href="{% url 'addrequest' %}" class="btn btn-primary">Operations</a>
+        <a href="{% url 'leaverequest' %}" class="btn btn-secondary">Leave Request</a>
+        <a href="{% url 'booking' %}" class="btn btn-success">Booking</a>
+        <a href="{% url 'snacks' %}" class="btn btn-dark">Snacks</a>
+        {% endif %}
     </div>
-</div>
-<section id="offer">
-    <div class="row">
-        <div class="col-md-2">
-            <a href="#"><button>Opearation</button></a>
-        </div>
-    </div>
-    <div class="col-md-2">
-            <a href="#"><button class="btn btn-promary">Leave</button></a>
-        </div>
-</section>
 {% endblock %}

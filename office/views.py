@@ -4,11 +4,12 @@ from django.views.generic import TemplateView
 from .models import operation,leave,snacks,booking
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomePageView(TemplateView):
     template_name = 'office/home.html'
 
-class add_requestView(CreateView):
+class add_requestView(LoginRequiredMixin,CreateView):
     template_name = 'office/operational.html'
     model = operation
     fields = ['firstname','lastname','department','operations']
@@ -20,7 +21,7 @@ class add_requestView(CreateView):
         messages.success(self.request, 'Your Booking Has been done.')
         return redirect('home')
 
-class leave_requestView(CreateView):
+class leave_requestView(LoginRequiredMixin,CreateView):
     template_name = 'office/leave.html'
     model = leave
     fields = ['firstname','lastname','department','leavetype','supervisoremail','teamleademail','numberofdays']
@@ -34,7 +35,7 @@ class leave_requestView(CreateView):
 
 
 # snacks,booking
-class SnacksView(CreateView):
+class SnacksView(LoginRequiredMixin,CreateView):
     template_name = 'office/snacks.html'
     model =  snacks
     fields = ['firstname','lastname','department','drinks','sugar']
@@ -46,7 +47,7 @@ class SnacksView(CreateView):
         messages.success(self.request, 'Request has been made for your snacks')
         return redirect('home')
 
-class BookingView(CreateView):
+class BookingView(LoginRequiredMixin,CreateView):
     template_name = 'office/booking.html'
     model = booking
     fields = ['firstname', 'lastname', 'department', 'mettingroom']

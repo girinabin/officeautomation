@@ -18,14 +18,13 @@
       <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="#"> Mpercent</a>
+            <a class="navbar-brand mr-4" href="{% url 'home' %}"><img src="{% static 'office/logo.png' %}" alt="logo" class="img-fluid logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="#">Home</a>
-                <a class="nav-item nav-link" href="#">About</a>
+                <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
@@ -35,7 +34,6 @@
                   <a class="nav-item nav-link" href="{% url 'snacks' %}">Snacks</a>
                   <a class="nav-item nav-link" href="{% url 'booking' %}">Meeting</a>
 <!--                todo: user_auth-->
-                  <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                   <a class="nav-item nav-link" href="{%url 'logout'%}">Logout</a>
                   {% else %}
                   <a class="nav-item nav-link" href="{%url 'login'%}">Login</a>
@@ -50,12 +48,12 @@
         <main role="main" class="container">
           <div class="row">
             <div class="col-md-8">
-              {%if messages%}
-        {%for message in messages%}
+              {% if messages %}
+                {% for message in messages %}
           <div class='alert alert-{{message.tags}}'>
             {{message}}
           </div>
-        {%endfor%}
+                {% endfor %}
       {%endif%}
             </div>
           </main>
